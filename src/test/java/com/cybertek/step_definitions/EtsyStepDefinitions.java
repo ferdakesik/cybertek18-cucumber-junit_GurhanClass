@@ -6,8 +6,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.bytebuddy.pool.TypePool;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+
+import java.util.concurrent.TimeUnit;
 
 public class EtsyStepDefinitions {
 
@@ -35,13 +38,17 @@ public class EtsyStepDefinitions {
     @When("User searches {string} in the search box")
     public void userSearchesInTheSearchBox(String searchValue) {
 
-        etsySearchPage.searchBox.sendKeys("apple" + Keys.ENTER);
+        etsySearchPage.searchBox.sendKeys("apple" + Keys .ENTER);
     }
 
     @And("User clicks to search button")
     public void userClicksToSearchButton() {
+
+        Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         etsySearchPage.searchBox.click();
+
     }
+
 
     @Then("User should see {string} in the Etsy title")
     public void userShouldSeeInTheEtsyTitle(String expectedInTitle) {
