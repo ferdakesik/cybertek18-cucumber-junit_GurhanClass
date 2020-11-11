@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src\\test\\resources\\features", //from content root
         glue = "com\\cybertek\\step_definitions", //from source root
         dryRun = false,
-        tags = "@search"
+        tags = "@etsyWip"
 
 
 
