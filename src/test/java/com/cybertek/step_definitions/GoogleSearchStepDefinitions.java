@@ -9,30 +9,10 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
+import java.util.List;
+
 public class GoogleSearchStepDefinitions {
 
-/*
-
-    @Given("user is on the google search page")
-    public void user_is_on_the_google_search_page() {
-
-
-    }
-
-    @Then("User should see title is Google")
-    public void user_should_see_title_is_google() {
-
-
-        String actualTitle = Driver.getDriver().getTitle();
-        String expectedTitle = "Google";
-
-
-        Assert.assertTrue("Actual title does not match expected title", actualTitle.equals(expectedTitle));
-        Assert.assertEquals("Actual title does not match expected title",actualTitle,expectedTitle);
-
-
-    }
-*/
 
     //creating the page object
     GoogleSearchPage googleSearchPage = new GoogleSearchPage();
@@ -82,5 +62,16 @@ public class GoogleSearchStepDefinitions {
 
         Assert.assertEquals(actualTitle, expectedTitle);
 
+    }
+
+    @Then("user should see six links in the footer")
+    public void user_should_see_six_links_in_the_footer(List<String> linkStrings) {
+
+       int expectedSize = linkStrings.size();
+       int actualSize = googleSearchPage.footerList.size();
+
+        System.out.println("linkStrings = " + linkStrings );
+
+       Assert.assertEquals(actualSize,expectedSize);
     }
 }
