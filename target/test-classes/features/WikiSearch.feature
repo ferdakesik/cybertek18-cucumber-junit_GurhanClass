@@ -8,3 +8,7 @@ Feature: Wiki title search verification
     Scenario: Search functionality search verification
       When User searches "Steve Jobs" in the wiki search page
       Then User should see "Steve Jobs" in the wiki title
+
+      Scenario: Search functionality header verification
+        When User searches "Steve Jobs" in the wiki search page
+        Then User should see "Steve Jobs" in the main header
